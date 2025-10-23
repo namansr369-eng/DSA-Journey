@@ -15,11 +15,11 @@ class RandomizedSet:
 
     def __init__(self):
         # Stores the elements. Provides O(1) access and O(1) random choice.
-        self.lst = []
+        self.lst: list[int] = []
         # Maps an element's value to its index in self.lst. Provides O(1) search/lookup.
-        self.idx_map = {}
+        self.idx_map: dict[int, int] = {}
 
-    def insert(self, val):
+    def insert(self, val: int) -> bool:
         if val in self.idx_map:
             return False
 
@@ -29,7 +29,7 @@ class RandomizedSet:
         self.idx_map[val] = len(self.lst) - 1
         return True
 
-    def remove(self, val):
+    def remove(self, val: int) -> bool:
         if val not in self.idx_map:
             return False
 
